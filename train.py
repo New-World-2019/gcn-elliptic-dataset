@@ -5,6 +5,7 @@ import pandas as pd
 import os
 from dataLoader import load_data
 from model import GCN_2layer
+import torch.nn as nn
 
 
 dir = "./elliptic_bitcoin_dataset"
