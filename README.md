@@ -21,8 +21,14 @@ GCN 方法预测区块链中的非法节点。
 git clone https://github.com/New-World-2019/gcn-elliptic-dataset.git
 ```
 ### 下载数据集
-- 通过下载地址 [Elliptic Dataset](https://www.kaggle.com/ellipticco/elliptic-data-set#elliptic_bitcoin_dataset.zip) 下载数据集，将数据集放置到 gcn-elliptic-dataset 目录下。
-### 运行
+通过下载地址 [Elliptic Dataset](https://www.kaggle.com/ellipticco/elliptic-data-set#elliptic_bitcoin_dataset.zip) 下载数据集，将数据集放置到 gcn-elliptic-dataset 目录下。
+### 创建 modelDir
+在gcn-elliptic-dataset 目录下创建目录 modelDir 用于保存训练的模型。
+### 训练
 ```
-python test_GCN.py -d [:dataset directory path] -t [:timestep to start testing] -m [:model weights directory]
+python train.py
+```
+### 测试
+```
+python test.py
 ```
