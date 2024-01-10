@@ -3,7 +3,11 @@ import time
 import sys
 import pandas as pd
 import os
-dir = "../input/elliptic-data-set/elliptic_bitcoin_dataset"
+from dataLoader import load_data
+from model import GCN_2layer
+
+
+dir = "./elliptic_bitcoin_dataset"
 dataSet = load_data(dir, 0, 34)
 
 num_features = 166   # 166 个特征

@@ -1,4 +1,6 @@
 from sklearn.metrics import f1_score, precision_score, recall_score
+from model import GCN_2layer
+
 test_ts = np.arange(14)
 adj_mats, features_labelled_ts, classes_ts = load_data(dir, 35, 49)
 

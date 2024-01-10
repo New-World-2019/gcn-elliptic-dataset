@@ -1,3 +1,6 @@
+import torch.nn as nn
+from layer import GraphConv
+
 class GCN_2layer(nn.Module):
     def __init__(self, in_features, hidden_features, out_features, skip = False):
         super(GCN_2layer, self).__init__()

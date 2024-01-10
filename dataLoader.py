@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import os
+
 def load_data(data_dir, start_ts, end_ts):
 	classes_csv = 'elliptic_txs_classes.csv'  # 203769 行，2列（id, lable）
 	edgelist_csv = 'elliptic_txs_edgelist.csv' # 234355 行，2列 （id1, id2）
