@@ -5,6 +5,7 @@ import pandas as pd
 import os
 from dataLoader import load_data
 from model import GCN_2layer
+import torch
 import torch.nn as nn
 
 
