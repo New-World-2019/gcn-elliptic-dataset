@@ -17,7 +17,7 @@ num_classes = 2      # 最后输出为两个类别
 # 0 - 非法, 1 - 合法
 labels_ts = []
 for c in classes_ts:
-    labels_ts.append(np.array(c['class'] == '2', dtype = np.long))
+    labels_ts.append(np.array(c['class'] == '2', dtype = np.compat.long))
 
 gcn = GCN_2layer(num_features, 100, num_classes)
 gcn.load_state_dict(torch.load(os.path.join("./modelDir", "gcn_weights.pth")))

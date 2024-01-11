@@ -29,7 +29,7 @@ adj_mats, features_labelled_ts, classes_ts = dataSet
 labels_ts = []
 #print("classes_ts = ", classes_ts)
 for c in classes_ts:
-    labels_ts.append(np.array(c['class'] == '2', dtype = np.long))
+    labels_ts.append(np.array(c['class'] == '2', dtype = np.compat.long))
 #print("labels_ts = \n", labels_ts)
 # num_features 输入/特征个数  100 隐藏单元个数  num_classes 输出类别个数
 gcn = GCN_2layer(num_features, 100, num_classes)
