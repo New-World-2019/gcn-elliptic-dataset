@@ -1,8 +1,16 @@
 from sklearn.metrics import f1_score, precision_score, recall_score
 from model import GCN_2layer
+import numpy as np
+from dataLoader import load_data
+import torch
+import os
 
+dir = "./elliptic_bitcoin_dataset"
 test_ts = np.arange(14)
 adj_mats, features_labelled_ts, classes_ts = load_data(dir, 35, 49)
+
+num_features = 166   # 166 个特征
+num_classes = 2      # 最后输出为两个类别
 
 # 0 - 非法, 1 - 合法
 labels_ts = []

@@ -32,7 +32,7 @@ def load_data(data_dir, start_ts, end_ts):
 	classes_ts = []
 	num_ts = 49 # number of timestamps from the paper
 
-	for ts in range(start_ts, 5):
+	for ts in range(start_ts, end_ts):
         # 选取 features[1] == ts+1 的所有行
 	    features_ts = features[features[1] == ts+1]
         # 选取上一步行的 id

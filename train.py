@@ -17,8 +17,8 @@ num_classes = 2      # 最后输出为两个类别
 num_ts = 49          # 49 子图？
 epochs = 15          # epochs
 lr = 0.001           # 学习率
-#max_train_ts = 34   # 0 ~ 34 用于训练，35 ~ 49 用于测试
-max_train_ts = 5
+max_train_ts = 34   # 0 ~ 34 用于训练，35 ~ 49 用于测试
+#max_train_ts = 5
 train_ts = np.arange(max_train_ts)  # [0,1,......,33] 的列表 
 
 adj_mats, features_labelled_ts, classes_ts = dataSet
