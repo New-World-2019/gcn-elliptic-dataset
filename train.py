@@ -1,16 +1,17 @@
-import numpy as np
-import time
-import sys
-import pandas as pd
-import os
 from dataLoader import load_data
 from model import GCN_2layer
 import torch
 import torch.nn as nn
+import numpy as np
+import time
+import sys
+import os
 
 
+print("Start loading data......")
 dir = "./elliptic_bitcoin_dataset"
 dataSet = load_data(dir, 0, 34)
+print("Loading data completed!")
 
 num_features = 166   # 166 个特征
 num_classes = 2      # 最后输出为两个类别

@@ -5,9 +5,11 @@ from dataLoader import load_data
 import torch
 import os
 
+print("Start loading data......")
 dir = "./elliptic_bitcoin_dataset"
 test_ts = np.arange(14)
 adj_mats, features_labelled_ts, classes_ts = load_data(dir, 35, 49)
+print("Loading data completed!")
 
 num_features = 166   # 166 个特征
 num_classes = 2      # 最后输出为两个类别
