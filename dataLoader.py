@@ -35,31 +35,31 @@ def load_data(data_dir, start_ts, end_ts):
 	for ts in range(start_ts, end_ts):
 		print("加载 %d 轮次数据" % ts)
         # 选取 features[1] == ts+1 的所有行
-	    features_ts = features[features[1] == ts+1]
+		features_ts = features[features[1] == ts+1]
         # 选取上一步行的 id
-	    tx_ts = list(features_ts.index)
+		tx_ts = list(features_ts.index)
 	    # 选取已标记的 id
-	    labelled_tx_ts = [tx for tx in tx_ts if tx in set(labelled_tx)]
+		labelled_tx_ts = [tx for tx in tx_ts if tx in set(labelled_tx)]
 	    
 	    # adjacency matrix for all the transactions
 	    # we will only fill in the transactions of this timestep which have labels and can be used for training
 	    # 创建二维数组，features 的全部的 id, 行和列分别命名 id 
-	    adj_mat = pd.DataFrame(np.zeros((num_tx, num_tx)), index = total_tx, columns = total_tx)
+		adj_mat = pd.DataFrame(np.zeros((num_tx, num_tx)), index = total_tx, columns = total_tx)
 	    #print("adj_mat.shape = ", adj_mat.shape) # (203769, 203769)
         # edgelist 中选取已经标记的 本轮 for 循环中的 id 列表
-	    edgelist_labelled_ts = edgelist.loc[edgelist.index.intersection(labelled_tx_ts).unique()]
+		edgelist_labelled_ts = edgelist.loc[edgelist.index.intersection(labelled_tx_ts).unique()]
 	    #print("edgelist_labbelled_ts: \n", edgelist_labelled_ts.head())
 	    #print("edgelist_labelled_ts = ", edgelist_labelled_ts.shape[0]) # 2593
         # 将 edgelist 选择的边映射到二维矩阵中
-	    for i in range(edgelist_labelled_ts.shape[0]):
-	        adj_mat.loc[edgelist_labelled_ts.index[i], edgelist_labelled_ts.iloc[i]['txId2']] = 1
+		for i in range(edgelist_labelled_ts.shape[0]):
+			adj_mat.loc[edgelist_labelled_ts.index[i], edgelist_labelled_ts.iloc[i]['txId2']] = 1
 	    # 筛选出本轮 for 循环 【labelled_tx_ts, labelled_tx_ts】的 id 构成的矩阵      
-	    adj_mat_ts = adj_mat.loc[labelled_tx_ts, labelled_tx_ts]
-	    features_l_ts = features.loc[labelled_tx_ts]  # 选出对应的 features
+		adj_mat_ts = adj_mat.loc[labelled_tx_ts, labelled_tx_ts]
+		features_l_ts = features.loc[labelled_tx_ts]  # 选出对应的 features
 	    
-	    adj_mats.append(adj_mat_ts)
-	    features_labelled_ts.append(features_l_ts)
-	    classes_ts.append(classes.loc[labelled_tx_ts])
+		adj_mats.append(adj_mat_ts)
+		features_labelled_ts.append(features_l_ts)
+		classes_ts.append(classes.loc[labelled_tx_ts])
 	    #print("adj_mats = ", adj_mats)
 	    #print("features_labelled_ts = ", features_labelled_ts.shape)
 	    #print("classes_ts = ", classes_ts.shape)
