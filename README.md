@@ -24,11 +24,11 @@ git clone https://github.com/New-World-2019/gcn-elliptic-dataset.git
 ```
 ### 2.下载数据集
 点击链接 [Elliptic Dataset](https://www.kaggle.com/ellipticco/elliptic-data-set#elliptic_bitcoin_dataset.zip) 下载数据集，将数据集解压到 gcn-elliptic-dataset 目录下。
-### 训练
+### 3.训练
 ```
 python train.py
 ```
-### 测试
+### 4.测试
 ```
 python test.py
 ```
